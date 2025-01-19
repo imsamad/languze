@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/navbar';
 import { NAVBAR_HEIGHT } from '@/config/global-ui-dims';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Footer } from '@/components/footer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -25,19 +27,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-screen overflow-x-hidden`}
       >
-        <Navbar />
-        <div
-          className="md:container mx-auto sm:px-0 px-4 overflow-x-hidden"
-          style={{
-            marginTop: NAVBAR_HEIGHT,
-          }}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          {children}
-        </div>
+          <Navbar />
+          <div
+            className="md:container mx-auto sm:px-0 px-4"
+            style={{
+              marginTop: NAVBAR_HEIGHT,
+            }}
+          >
+            {children}
+          </div>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

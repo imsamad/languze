@@ -1,11 +1,9 @@
-import { Button } from '@/components/ui/button';
+import { LoremIpsum } from '@/components/lorem';
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Hello Guys</h1>
-      <div className="w-[500vw] p-4 bg-red-200"></div>
-      <Button>Hello</Button>
+    <div className="min-h-screen">
+      <LoremIpsum n={100} />
     </div>
   );
 };

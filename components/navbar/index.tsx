@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Logo } from '../logo';
-import { HTMLAttributes } from 'react';
 import { NAVBAR_HEIGHT } from '@/config/global-ui-dims';
+import { ThemeToggler } from './theme-toggler';
 
 const NavLink = ({
   label,
@@ -22,7 +22,7 @@ const NavLink = ({
 export const Navbar = () => {
   return (
     <div
-      className="fixed top-0 right-0 left-0"
+      className="fixed top-0 right-0 left-0 backdrop-blur-md border-b-2 border-b-gray-200"
       style={{
         height: NAVBAR_HEIGHT,
       }}
@@ -36,6 +36,8 @@ export const Navbar = () => {
           <NavLink href="/learn/js" label="JavaScript" />
           <NavLink href="/learn/react-js" label="ReactJS" />
           <NavLink href="/learn/node-js" label="NodeJS" />
+          <NavLink href="/learn/computer-network" label="Computer Network" />
+          <ThemeToggler />
         </div>
       </div>
     </div>

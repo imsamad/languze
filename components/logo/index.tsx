@@ -1,3 +1,9 @@
+import Link from 'next/link';
+
 export const Logo = () => {
-  return <h1 className={`text-3xl font-bold`}>Languze</h1>;
+  return (
+    <Link href="/">
+      <h1 className={`text-3xl font-bold`}>Languze</h1>
+    </Link>
+  );
 };
