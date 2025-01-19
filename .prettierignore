@@ -1,0 +1,9 @@
+dist
+node_modules
+.next
+/package-lock.json
+/pnpm-lock.json
+*.yaml
+build
+.env
+out
