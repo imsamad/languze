@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import { Navbar } from '@/components/navbar';
+import { NAVBAR_HEIGHT } from '@/config/global-ui-dims';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -25,9 +27,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen overflow-hidden`}
       >
-        {children}
+        <Navbar />
+        <div
+          className="md:container mx-auto sm:px-0 px-4 overflow-x-hidden"
+          style={{
+            marginTop: NAVBAR_HEIGHT,
+          }}
+        >
+          {children}
+        </div>
       </body>
     </html>
   );
